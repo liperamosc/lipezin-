@@ -1,0 +1,25 @@
+def bubble_sort(arr):
+    """
+    Ordena uma lista usando o algoritmo Bubble Sort.
+    :param arr: Lista de elementos a serem ordenados
+    :return: Lista ordenada
+    """
+    n = len(arr)
+    for i in range(n):
+        # Flag para otimizar o algoritmo (se nenhuma troca ocorrer, a lista já está ordenada)
+        swapped = False
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                # Troca os elementos
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        # Se nenhum elemento foi trocado no loop interno, a lista já está ordenada
+        if not swapped:
+            break
+    return arr
+
+# Exemplo de uso
+lista_nao_ordenada = [64, 34, 25, 12, 22, 11, 90]
+lista_ordenada = bubble_sort(lista_nao_ordenada)
+print(f"Lista original: {lista_nao_ordenada}")
+print(f"Lista ordenada: {lista_ordenada}")
